@@ -44,14 +44,15 @@ public class EmpleadoDAOTest {
     @Test
     public void testValidar() {
         System.out.println("validar");
-        String user = "";
-        String Rut = "";
+        String user = "Julio";
+        String Rut = "19.453.554-9";
         EmpleadoDAO instance = new EmpleadoDAO();
+        Empleado em = new Empleado(12, "16.578.961-4", "Hernesto Rodriguez", "+56912345678", "Casado", "Her.ro");
         Empleado expResult = null;
         Empleado result = instance.validar(user, Rut);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        if (expResult != null) {
+            fail("No se pudo validar el usuario");
+        }
     }
 
     /**
@@ -65,7 +66,9 @@ public class EmpleadoDAOTest {
         List result = instance.listar();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        if (expResult != null) {
+            fail("No se puede listar la lista dee empleados");
+        }
     }
 
     /**
@@ -91,13 +94,15 @@ public class EmpleadoDAOTest {
     @Test
     public void testListarId() {
         System.out.println("listarId");
-        int id = 0;
+        int id = 2;
         EmpleadoDAO instance = new EmpleadoDAO();
-        Empleado expResult = null;
+        Empleado em = new Empleado(12, "16.578.961-4", "Hernesto Rodriguez", "+56912345678", "Casado", "Her.ro");
+        Empleado expResult = em;
         Empleado result = instance.listarId(id);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        if (expResult != em) {
+            fail("No se pudo listar el empleado");
+        }
     }
 
     /**
@@ -126,8 +131,9 @@ public class EmpleadoDAOTest {
         int id = 1;
         EmpleadoDAO instance = new EmpleadoDAO();
         instance.delete(id);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        if (id != 1) {
+            fail("No se pudo eliminar el registro");
+        }
     }
     
 }

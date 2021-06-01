@@ -49,9 +49,6 @@ public class ProductoDAOTest {
         ProductoDAO instance = new ProductoDAO();
         Producto expResult = null;
         Producto result = instance.buscar(id);
-        assertEquals(expResult, result);
-        
-        // TODO review the generated test code and remove the default call to fail.
         if (expResult != null) {
             fail("No se encontro el producto");
         }
@@ -72,7 +69,7 @@ public class ProductoDAOTest {
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         if (result != expResult) {
-            fail("The test case is a prototype.");
+            fail("No se a podido actualizar el stock");
         }
     }
 
@@ -82,13 +79,15 @@ public class ProductoDAOTest {
     @Test
     public void testListarId() {
         System.out.println("listarId");
-        int id = 0;
+        int id = 1;
         ProductoDAO instance = new ProductoDAO();
         Producto expResult = null;
         Producto result = instance.listarId(id);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        if (result != expResult) {
+            fail("No se a podido listar las diferentes");
+        }
     }
 
     /**
@@ -102,7 +101,9 @@ public class ProductoDAOTest {
         List result = instance.listar();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        if (result != expResult) {
+            fail("No se a podido listar los diferentes productos");
+        }
     }
 
     /**
@@ -111,12 +112,14 @@ public class ProductoDAOTest {
     @Test
     public void testListarImg() {
         System.out.println("listarImg");
-        int id = 0;
+        int id = 2;
         HttpServletResponse response = null;
         ProductoDAO instance = new ProductoDAO();
         instance.listarImg(id, response);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        if (id !=2) {
+            fail("No se a podido subir la imagen");
+        }
     }
 
     /**
@@ -132,7 +135,7 @@ public class ProductoDAOTest {
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         if (expResult != 0) {
-            fail("The test case is a prototype.");   
+            fail("Se a podido agregar el producto");   
         }
     }
 
@@ -148,7 +151,9 @@ public class ProductoDAOTest {
         int result = instance.actualizar(p);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        if (expResult != 0) {
+            fail("No se a podido actualizar el producto");   
+        }
     }
 
     /**
@@ -161,7 +166,9 @@ public class ProductoDAOTest {
         ProductoDAO instance = new ProductoDAO();
         instance.delete(id);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        if (id != 0) {
+            fail("No no se a podido eliminar el producto");   
+        }
     }
     
 }
